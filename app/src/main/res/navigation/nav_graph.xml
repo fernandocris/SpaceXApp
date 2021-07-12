@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/rocketListFragment"
+        android:name="uk.fernando.spacex.ui.RocketListFragment"
+        android:label="@string/rocket_list"
+        tools:layout="@layout/fragment_rocket_list">
+        <action
+            android:id="@+id/navigate_to_rocket_detail"
+            app:destination="@id/rocket_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rocket_detail"
+        android:name="uk.fernando.spacex.ui.RocketDetailFragment"
+        android:label="@string/rocket_detail"
+        tools:layout="@layout/fragment_rocket_detail">
+
+        <argument
+            android:name="rocket"
+            app:argType="uk.fernando.spacex.model.RocketModel" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="uk.fernando.spacex.ui.SplashFragment"
+        android:label=""
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/navigate_to_rocket_list"
+            app:destination="@id/rocketListFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+</navigation>
